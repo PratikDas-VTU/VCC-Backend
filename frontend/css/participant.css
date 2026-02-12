@@ -1,0 +1,226 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BASE */
+body {
+  font-family: "Inter", sans-serif;
+  background: radial-gradient(circle at top, #0c1222, #02040a);
+  color: #e6f2ff;
+  overflow-y: auto;
+}
+
+/* BACKGROUND GRID */
+.bg {
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(rgba(40,247,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(40,247,255,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* HEADER */
+.top-title {
+  height: 64px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  padding: 0 28px;
+  border-bottom: 1px solid rgba(40,247,255,0.15);
+  position: relative;
+  z-index: 1;
+}
+
+.vcc-logo {
+  height: 38px;
+}
+
+.header-center {
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 3px;
+}
+
+.cyan { color: #28f7ff; }
+.divider { color: #555; }
+.pink { color: #ff7cf0; }
+
+/* MAIN */
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  position: relative;
+  z-index: 1;
+}
+
+/* LEFT */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.info-title {
+  font-family: "Orbitron", sans-serif;
+  color: #28f7ff;
+}
+
+.info-text {
+  max-width: 460px;
+  line-height: 1.7;
+  color: #c8d9f0;
+}
+
+.rules-btn {
+  width: fit-content;
+  padding: 10px 18px;
+  background: none;
+  border: 1px solid rgba(40,247,255,0.5);
+  color: #28f7ff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.quote {
+  border-left: 3px solid #28f7ff;
+  padding-left: 14px;
+  font-size: 13px;
+  color: #9deaff;
+}
+
+/* RIGHT */
+.login-card {
+  width: 440px;
+  padding: 40px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(18,28,55,0.95), rgba(8,12,26,0.95));
+  border: 1px solid rgba(40,247,255,0.3);
+  box-shadow: 0 0 40px rgba(40,247,255,0.18);
+}
+
+.login-card h2 {
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+}
+
+.login-card span {
+  color: #28f7ff;
+}
+
+.subtext {
+  text-align: center;
+  font-size: 12px;
+  margin: 12px 0 22px;
+  color: #b9d6ff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input {
+  padding: 12px;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(40,247,255,0.25);
+  border-radius: 6px;
+  color: #e6f2ff;
+}
+
+button[type="submit"] {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(90deg, #28f7ff, #7cf7ff);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.login-message {
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+/* RULES */
+.rules {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px;
+}
+
+.rules.hidden {
+  display: none;
+}
+
+.rule-item {
+  margin-top: 18px;
+  border: 1px solid rgba(40,247,255,0.25);
+  border-radius: 10px;
+}
+
+.rule-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  cursor: pointer;
+}
+
+.rule-number {
+  color: #28f7ff;
+}
+
+.rule-toggle {
+  margin-left: auto;
+  background: #28f7ff;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+.rule-content {
+  display: none;
+  padding: 14px;
+  color: #bfefff;
+}
+
+.rule-content.open {
+  display: block;
+}
+
+/* FOOTER */
+.participant-footer {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid rgba(40,247,255,0.15);
+  font-size: 11px;
+  color: #9fb7d6;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 28px;
+  }
+
+  .login-card {
+    width: 100%;
+  }
+}

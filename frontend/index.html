@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="VIBATHON - A 2-hour high-intensity AI-assisted development hackathon under VEL TECH CYBERCATALYST (VCC) 2026">
+    <meta name="keywords" content="VIBATHON, VCC 2026, hackathon, AI-assisted development, VEL TECH">
+    <title>VIBEATHON | VEL TECH CYBERCATALYST 2026</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="cyber-background">
+        <canvas id="cyber-canvas"></canvas>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="https://vcc2026.vercel.app/" target="_blank" rel="noopener noreferrer">
+                    <div class="logo-placeholder">
+                        <img src="https://res.cloudinary.com/dpvk1lduh/image/upload/v1770884855/VCC-logo_gvqdgd.png"
+                            alt="VCC 2026 Logo" class="vcc-logo" />
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="navbar-title">
+                <h1 class="vibathon-title">VIBEATHON</h1>
+            </div>
+
+            <nav class="navbar-links">
+                <a href="#rules" class="nav-link">Rules</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-btn" id="loginBtn">
+                        Login
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="dropdown-menu" id="loginDropdown">
+                        <a class="dropdown-item admin-link">Admin Login</a>
+
+
+
+                    </div>
+                </div>
+                <a href="participant-login.html" class="nav-link nav-link-cta">Participant Login</a>
+            </nav>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#rules" class="mobile-nav-link">Rules</a>
+        <a class="mobile-nav-link admin-link" href="admin-login.html">Admin Login</a>
+
+        <a href="participant-login.html" class="mobile-nav-link mobile-nav-cta">Participant Login</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-left">
+                <div class="hero-content">
+                    <h1 class="hero-title" data-text="VIBATHON">VIBEATHON</h1>
+                    <p class="hero-subtitle">Under Vel Tech Cyber Catalyst (VCC) 2026</p>
+                    <p class="hero-description">A 2-hour high-intensity AI-assisted development hackathon</p>
+                    <div class="hero-cta">
+                        <a href="participant-login.html" class="btn btn-primary">Participant Login</a>
+                        <a href="#timeline" class="btn btn-secondary">View Timeline</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="glass-card floating">
+                    <h2 class="glass-card-title">About the Event</h2>
+                    <div class="glass-card-content">
+                        <div class="about-item">
+                            <span class="about-icon">⏱️</span>
+                            <p>2-hour development event</p>
+                        </div>
+                        <div class="about-item">
+                            <span class="about-icon">🤖</span>
+                            <p>AI tools are allowed for development</p>
+                        </div>
+                        <div class="about-item">
+                            <span class="about-icon">📜</span>
+                            <p>Participants must strictly follow rules</p>
+                        </div>
+                        <div class="about-item">
+                            <span class="about-icon">⚡</span>
+                            <p>Problem statements will be released 30 minutes before the event</p>
+                        </div>
+                    </div>
+                    <div class="event-date">
+                        <span class="date-label">Event Date:</span>
+                        <span class="date-value">13 February 2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Highlights Section -->
+    <section class="highlights" id="highlights">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">Event Highlights</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-icon">⏱️</div>
+                    <h3 class="highlight-title">2-Hour Development Sprint</h3>
+                    <p class="highlight-description">Intense coding marathon to build innovative solutions in record
+                        time</p>
+                </div>
+
+                <div class="highlight-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="highlight-icon">🤖</div>
+                    <h3 class="highlight-title">AI-Assisted Development</h3>
+                    <p class="highlight-description">Leverage cutting-edge AI tools to accelerate your development
+                        process</p>
+                </div>
+
+                <div class="highlight-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="highlight-icon">📜</div>
+                    <h3 class="highlight-title">Immutable Prompt Submission</h3>
+                    <p class="highlight-description">Once submitted, prompts cannot be changed - plan strategically</p>
+                </div>
+
+                <div class="highlight-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="highlight-icon">🌐</div>
+                    <h3 class="highlight-title">Live Deployment Required</h3>
+                    <p class="highlight-description">Deploy your solution on Netlify or Vercel for evaluation</p>
+                </div>
+
+                <div class="highlight-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="highlight-icon">🏆</div>
+                    <h3 class="highlight-title">Evaluation & Prizes</h3>
+                    <p class="highlight-description">Compete for exciting prizes based on innovation and execution
+                        (Certificates will be Provided to all participants)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Timeline Section -->
+    <section class="timeline" id="timeline">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">Event Timeline</h2>
+            <p class="section-subtitle" data-aos="fade-up">13th February 2026 - Complete Schedule</p>
+
+            <div class="timeline-wrapper">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-time">08:45</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Problem Statements Distribution</h3>
+                        <p class="timeline-description">Problem statements will be distributed via WhatsApp Group &
+                            Website</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-time">09:00</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Inauguration</h3>
+                        <p class="timeline-description">Official opening ceremony and event kickoff</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-time">09:15</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Development Starts</h3>
+                        <p class="timeline-description">Begin coding your solution - 2 hours of intense development</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-time">11:15</div>
+                    <div class="timeline-marker highlight"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Deployment Window</h3>
+                        <p class="timeline-description">Deploy your solution on Netlify or Vercel</p>
+                        <div class="timeline-info">
+                            <strong>Website Naming Format:</strong> problemStatementID + teamID
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-time">11:15 - 11:45</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Evaluation</h3>
+                        <p class="timeline-description">Expert judges will evaluate submissions based on innovation,
+                            execution, and compliance</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-time">11:45</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Prize Distribution</h3>
+                        <p class="timeline-description">Winners will be announced and prizes will be awarded
+                            (Certificates will be Provided to all participants)</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-time">12:00</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Event Close</h3>
+                        <p class="timeline-description">Official closing of VIBEATHON 2026</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section class="rules" id="rules">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">Rules & Guidelines</h2>
+            <p class="section-subtitle" data-aos="fade-up">Please read carefully and follow all rules</p>
+
+            <div class="rules-container">
+
+                <div class="rule-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="rule-header">
+                        <span class="rule-number">01</span>
+                        <h3 class="rule-title">GitHub Repository Policy</h3>
+                        <button class="rule-toggle">+</button>
+                    </div>
+                    <div class="rule-content">
+                        <p>
+                            A new GitHub repository must be created only after entering the college campus.
+                            All development work must be pushed to the repository strictly during the competition
+                            period.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="rule-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="rule-header">
+                        <span class="rule-number">02</span>
+                        <h3 class="rule-title">Pre-written Code Prohibition</h3>
+                        <button class="rule-toggle">+</button>
+                    </div>
+                    <div class="rule-content">
+                        <p>
+                            Pre-written or previously developed projects are strictly prohibited.
+                            Only code written during the event duration will be considered for evaluation.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="rule-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="rule-header">
+                        <span class="rule-number">03</span>
+                        <h3 class="rule-title">Competition Time Window</h3>
+                        <button class="rule-toggle">+</button>
+                    </div>
+                    <div class="rule-content">
+                        <p>
+                            The competition will run for a fixed development duration.
+                            Coding must begin only after the official start announcement by the organizers.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="rule-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="rule-header">
+                        <span class="rule-number">04</span>
+                        <h3 class="rule-title">Final Submission Requirements</h3>
+                        <button class="rule-toggle">+</button>
+                    </div>
+                    <div class="rule-content">
+                        <p>
+                            The final submission must be a working AI-based web application or web dashboard
+                            that runs either locally or directly in a web browser.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="rule-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="rule-header">
+                        <span class="rule-number">05</span>
+                        <h3 class="rule-title">Technology Stack Freedom</h3>
+                        <button class="rule-toggle">+</button>
+                    </div>
+                    <div class="rule-content">
+                        <p>
+                            Teams are free to use any web technology stack including
+                            HTML, CSS, JavaScript, React, Flask, Node.js, or similar technologies
+                            to implement their solution.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="rule-item" data-aos="fade-up" data-aos-delay="600">
+                    <div class="rule-header">
+                        <span class="rule-number">06</span>
+                        <h3 class="rule-title">Fair Play & Collaboration Policy</h3>
+                        <button class="rule-toggle">+</button>
+                    </div>
+                    <div class="rule-content">
+                        <p>
+                            Cross-team collaboration, code sharing, or idea exchange between teams
+                            is strictly prohibited and will result in disqualification.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="rule-item" data-aos="fade-up" data-aos-delay="700">
+                    <div class="rule-header">
+                        <span class="rule-number">07</span>
+                        <h3 class="rule-title">Innovation & Conduct</h3>
+                        <button class="rule-toggle">+</button>
+                    </div>
+                    <div class="rule-content">
+                        <p>
+                            Teams are encouraged to focus on innovation, creativity, and practical problem-solving
+                            rather than purely theoretical solutions. Any form of malpractice or rule violation
+                            will lead to immediate disqualification, and the judges’ decision will be final.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Login & Register Section -->
+    <section class="login-register" id="login-register">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">Get Started</h2>
+            <div class="login-register-grid">
+                <!-- <div class="lr-card" data-aos="fade-right" id="admin-login">
+                    <div class="lr-icon">🔐</div>
+                    <h3 class="lr-title">Admin Login</h3>
+                    <p class="lr-description">Access the admin dashboard to manage events, participants, and submissions</p>
+                    <button class="btn btn-primary">Admin Access</button>
+                </div> -->
+
+                <div class="lr-card" data-aos="fade-up" id="participant-login">
+                    <div class="lr-icon">👤</div>
+                    <h3 class="lr-title">Participant Login</h3>
+                    <p class="lr-description">Login to your participant account to view your team details and
+                        submissions</p>
+                    <button class="btn btn-primary" data-redirect="participant-login.html">
+                        Participant Access
+                    </button>
+
+
+                </div>
+
+                <div class="lr-card lr-card-featured" data-aos="fade-left" id="register">
+                    <div class="lr-icon">🛡️</div>
+
+                    <h3 class="lr-title">Vel Tech CyberCatalyst 2026</h3>
+
+                    <p class="lr-description">
+                        VCC 2026 is a national-level academia–industry conclave uniting innovators, researchers, and
+                        students
+                        to explore cybersecurity, artificial intelligence, and next-generation technologies.
+                    </p>
+
+                    <button class="btn btn-cta" data-redirect="https://vcc2026.vercel.app/"
+                        aria-label="Visit Vel Tech CyberCatalyst Official Website">
+                        Visit Official Website
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Coordinators Section -->
+    <section class="coordinators" id="coordinators">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">Event Coordinators</h2>
+            <p class="section-subtitle" data-aos="fade-up">Get in touch with our team</p>
+
+            <div class="coordinators-grid">
+                <div class="coordinator-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="coordinator-icon">👨‍🏫</div>
+                    <h3 class="coordinator-role">Faculty Coordinator</h3>
+                    <p class="coordinator-name">Dr. Shahul Hameed C</p>
+                    <a href="tel:+91 94454 57836" class="coordinator-contact">
+                        <span class="contact-icon">📞</span>
+                        +91 94454 57836
+                    </a>
+                </div>
+
+                <div class="coordinator-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="coordinator-icon">👨‍🎓</div>
+                    <h3 class="coordinator-role">Senior Student Coordinator</h3>
+                    <p class="coordinator-name">Manoj Varshan</p>
+                    <a href="tel:+91 93846 46326" class="coordinator-contact">
+                        <span class="contact-icon">📞</span>
+                        +91 93846 46326
+                    </a>
+                </div>
+
+                <div class="coordinator-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="coordinator-icon">🎓</div>
+                    <h3 class="coordinator-role">Senior Student Coordinator</h3>
+                    <p class="coordinator-name">Jevin</p>
+                    <a href="tel:+91 80566 81220" class="coordinator-contact">
+                        <span class="contact-icon">📞</span>
+                        +91 80566 81220
+                    </a>
+                </div>
+
+                <div class="coordinator-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="coordinator-icon">👥</div>
+                    <h3 class="coordinator-role">Senior Student Coordinator</h3>
+                    <p class="coordinator-name">K. Banu Rekha</p>
+                    <a href="tel:+91 79043 30507" class="coordinator-contact">
+                        <span class="contact-icon">📞</span>
+                        +91 79043 30507
+                    </a>
+                </div>
+
+                <div class="coordinator-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="coordinator-icon">👥</div>
+                    <h3 class="coordinator-role">Co-Coordinator</h3>
+                    <p class="coordinator-name">Pratik Das</p>
+                    <a href="tel:+91 7879804820" class="coordinator-contact">
+                        <span class="contact-icon">📞</span>
+                        +91 7879804820
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3 class="footer-title">VIBEATHON 2026</h3>
+                    <p class="footer-description">A national level AI-assisted development hackathon under VEL TECH
+                        CYBERCATALYST.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hero">About</a></li>
+                        <li><a href="#rules">Rules</a></li>
+                        <li><a href="#timeline">Timeline</a></li>
+                        <li><a href="#highlights">Highlights</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-heading">Get Started</h4>
+                    <ul class="footer-links">
+                        <li><a href="admin-login.html">Admin Login</a>
+
+                        </li>
+                        <li><a href="participant-login.html">Participant Login</a></li>
+
+                        <li><a href="https://vcc2026.vercel.app/">VCC 2026</a></li>
+                        <li><a href="#coordinators">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-heading">Event Info</h4>
+                    <ul class="footer-info">
+                        <li>📅 13 February 2026</li>
+                        <li>⏱️ 09:00 AM - 12:00 PM</li>
+                        <li>🏢 VEL TECH , Avadi , Chennai</li>
+                        <li>🌐 National Level</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2026 VEL TECH CYBERCATALYST – All Rights Reserved</p>
+                <button class="back-to-top" id="backToTop">
+                    <span class="back-to-top-icon">↑</span>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

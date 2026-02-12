@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Vibeathon | Participant Dashboard</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/participant-dashboard.css" />
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg"></div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="dashboard-header">
+    <div class="header-left">
+      <span class="brand">
+        <span class="cyan">VIBEATHON</span> |
+        <span class="team" id="headerTeamId">TEAM</span> – DASHBOARD
+      </span>
+    </div>
+
+    <div class="header-right">
+      <span id="timer" class="timer" style="display: none;">00:00:00</span>
+      <button id="endSession" class="end-btn">END SESSION</button>
+      <button id="logoutBtn" class="logout-btn">Logout</button>
+    </div>
+  </header>
+
+  <!-- ================= MAIN ================= -->
+  <main class="container">
+
+    <!-- ===== TEAM INFO ===== -->
+    <section class="team-info">
+      <h2>Team Information</h2>
+
+      <div class="info-grid">
+        <div><strong>Team ID:</strong> <span id="teamId">—</span></div>
+        <div><strong>Team Size:</strong> <span id="teamSize">—</span></div>
+
+        <div class="full">
+          <strong>Team Members:</strong>
+          <ul id="teamMembersList"></ul>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="problem-download">
+      <h2>Problem Statement</h2>
+      <p class="note">
+        The problem statement will be available once the hackathon begins.
+      </p>
+      <button id="downloadProblem">
+        DOWNLOAD PROBLEM STATEMENT (DOCX)
+      </button>
+    </section>
+
+    <!-- ===== PROJECT SUBMISSION ===== -->
+    <section class="submission-section">
+      <h2>Project Submission</h2>
+
+      <label class="field-label">GitHub Repository URL</label>
+      <input type="url" id="githubUrl" placeholder="https://github.com/username/repository" class="ai-input" />
+      <p id="githubError" class="input-error"></p>
+
+      <button id="submitGithub">SUBMIT GITHUB URL</button>
+
+      <label class="field-label">Deployment URL</label>
+      <input type="url" id="deploymentUrl" placeholder="https://your-project.vercel.app" class="ai-input" disabled />
+      <p id="deployError" class="input-error"></p>
+
+      <button id="submitDeployment" disabled>
+        SUBMIT DEPLOYMENT URL
+      </button>
+
+      <div class="submission-status">
+        <p>
+          GitHub Status:
+          <span id="githubStatus" class="status pending">❌ Not Submitted</span>
+        </p>
+        <p>
+          Deployment Status:
+          <span id="deploymentStatus" class="status pending">❌ Not Submitted</span>
+        </p>
+      </div>
+
+      <p class="warning">
+        ⚠ Both GitHub and Deployment URLs must be submitted before ending the session.
+      </p>
+    </section>
+
+    <!-- ===== PROMPT SUBMISSION ===== -->
+    <section class="prompt-section">
+      <h2>Prompt Submission</h2>
+
+      <label class="field-label">AI Tool Used</label>
+      <input type="text" id="aiNameInput" list="aiToolsList" placeholder="e.g. ChatGPT, Claude, Gemini"
+        class="ai-input" />
+      <datalist id="aiToolsList">
+        <!-- AI tools will be populated here dynamically -->
+      </datalist>
+
+      <textarea id="promptInput" placeholder="Enter your AI prompt here..."></textarea>
+      <button id="submitPrompt">SUBMIT PROMPT</button>
+
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>AI Tool</th>
+            <th>Prompt</th>
+            <th>Submitted At</th>
+          </tr>
+        </thead>
+        <tbody id="promptTable"></tbody>
+      </table>
+
+      <p class="warning">
+        ⚠ Once submitted, prompts are permanently locked and cannot be edited.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- ================= MODALS ================= -->
+
+  <!-- SESSION ENDED -->
+  <div id="sessionModal" class="session-modal">
+    <div class="session-box">
+      <h2>SESSION ENDED</h2>
+      <p>Your submitted prompts will now be evaluated.</p>
+      <button class="modal-btn">YOU CAN CLOSE THIS WINDOW</button>
+    </div>
+  </div>
+
+  <!-- CONFIRM END SESSION -->
+  <div id="confirmModal" class="session-modal">
+    <div class="session-box warning-box">
+      <h2>⚠ Confirm End Session</h2>
+      <p>All submissions will be locked permanently.</p>
+
+      <div class="modal-actions">
+        <button id="cancelEnd" class="modal-btn secondary">Cancel</button>
+        <button id="confirmEnd" class="modal-btn danger">End Session</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- ================= SCRIPTS ================= -->
+  <script type="module" src="js/participant-auth-guard.js"></script>
+
+  <script type="module" src="js/participant-dashboard.js"></script>
+  <div id="timeWarning" class="time-warning"></div>
+
+</body>
+
+</html>

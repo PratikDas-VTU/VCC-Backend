@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Vibeathon | Admin Dashboard</title>
+  <link rel="stylesheet" href="css/admin-dashboard.css" />
+</head>
+
+<body>
+
+  <div class="bg"></div>
+
+  <header class="admin-header">
+    <div class="header-left">
+      <img src="https://res.cloudinary.com/dpvk1lduh/image/upload/v1770884855/VCC-logo_gvqdgd.png" alt="VCC Logo"
+        class="vcc-logo">
+    </div>
+
+    <div class="header-center">
+      <span class="panel-title">ADMIN EVALUATION PANEL</span>
+    </div>
+
+    <div class="header-right">
+      <button id="logoutBtn" class="logout-btn">LOGOUT</button>
+    </div>
+  </header>
+
+  <!-- ADMIN STATS OVERVIEW -->
+  <section class="admin-stats">
+    <div class="stat-card">
+      <span class="stat-label">Total Registrations</span>
+      <span class="stat-value" id="totalTeams">0</span>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-label">Total Submissions</span>
+      <span class="stat-value" id="totalSubmissions">0</span>
+    </div>
+
+    <div class="stat-card highlight">
+      <span class="stat-label">Fastest Completion</span>
+      <span class="stat-value" id="fastestTeam">—</span>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="panel">
+
+      <!-- HEADER WITH FILTER -->
+      <div class="panel-header">
+        <div>
+          <h2>Registered Teams</h2>
+          <p class="panel-note">
+            Ranking is based on selected evaluation filter.
+          </p>
+        </div>
+
+        <div class="filter-box">
+          <label for="rankFilter">Ranking Filter</label>
+          <select id="rankFilter">
+            <option value="time" selected>Least Time of Completion</option>
+            <option value="ai-score">Best AI Score</option>
+
+            <option value="ai">Least Unique AI Tools Used</option>
+            <option value="prompts">Least Number of Prompts Used</option>
+            <option value="balanced">Balanced Score</option>
+            <option value="none">None (Show All Teams)</option>
+          </select>
+          <button id="exportBtn" class="export-btn">Export CSV</button>
+          <button id="evaluateAI" class="export-btn">
+            Run AI Evaluation
+          </button>
+
+        </div>
+      </div>
+
+
+      <!-- TABLE -->
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Team ID</th>
+            <th>Leader</th>
+            <th>Completion Time</th>
+            <th>AI Score</th>
+            <th>Actions</th>
+
+
+          </tr>
+        </thead>
+        <tbody id="teamTable"></tbody>
+      </table>
+
+    </section>
+
+  </main>
+
+  <!-- TEAM DETAILS MODAL -->
+  <div class="modal" id="teamModal">
+    <div class="modal-box">
+
+      <!-- HEADER -->
+      <div class="modal-header">
+        <h2>Team Submission Details</h2>
+      </div>
+
+      <!-- BODY (SCROLLS) -->
+      <div class="modal-body">
+        <div id="teamInfo"></div>
+        <div id="teamStats"></div>
+
+        <h3 class="section-title">Submitted Prompts</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>AI Tool</th>
+              <th>Prompt</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="promptTable"></tbody>
+        </table>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="modal-footer">
+        <button id="closeModal" class="modal-btn">CLOSE</button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <footer class="admin-footer">
+    <span>Vibeathon • VEL TECH CYBERCATALYST (VCC) 2026</span>
+    <span class="readonly">Admin Evaluation View (Read-Only)</span>
+  </footer>
+
+  <script src="js/admin-dashboard.js"></script>
+
+  <div id="logoutConfirm" class="logout-overlay">
+    <div class="logout-box">
+      <h3>Confirm Logout</h3>
+      <p>Are you sure you want to logout from Admin Panel?</p>
+
+      <div class="logout-actions">
+        <button id="cancelLogout">Cancel</button>
+        <button id="confirmLogout">Logout</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

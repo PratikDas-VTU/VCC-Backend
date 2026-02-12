@@ -1,0 +1,387 @@
+/* =========================
+   RESET & BASE
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", monospace;
+}
+
+body {
+  height: 100vh;
+  background: radial-gradient(circle at top, #0c1222, #02040a);
+  color: #e6f2ff;
+  overflow: hidden; /* NO SCROLL ON DESKTOP */
+}
+
+
+/* =========================
+   BACKGROUND GRID
+   ========================= */
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(rgba(0,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* =========================
+   LOGO
+   ========================= */
+.logo-placeholder {
+  position: relative;
+  top: 18px;
+  left: 22px;
+  z-index: 5;
+}
+
+.vcc-logo {
+  height: 42px;
+  width: auto;
+  filter:
+    drop-shadow(0 0 6px rgba(40,247,255,0.35))
+    drop-shadow(0 0 14px rgba(130,44,255,0.25));
+}
+
+/* =========================
+   HEADER
+   ========================= */
+/* =========================
+   HEADER (FIXED ALIGNMENT)
+   ========================= */
+.top-title {
+  height: 64px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  padding: 0 24px;
+  border-bottom: 1px solid rgba(0,255,255,0.15);
+  position: relative;
+  z-index: 3;
+}
+
+/* Left logo */
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.vcc-logo {
+  height: 40px;
+  width: auto;
+  filter:
+    drop-shadow(0 0 6px rgba(40,247,255,0.35))
+    drop-shadow(0 0 14px rgba(130,44,255,0.25));
+}
+
+/* Center title */
+.header-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  letter-spacing: 3px;
+}
+
+.cyan { color: #28f7ff; }
+.pink { color: #ff2fd3; }
+.divider { color: #666; }
+
+
+.cyan { color: #28f7ff; }
+.pink { color: #ff2fd3; }
+.divider { color: #666; }
+
+/* =========================
+   MAIN WRAPPER (DESKTOP)
+   ========================= */
+.wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px 48px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+  align-items: center;
+  height: calc(100vh - 64px - 44px);
+}
+
+
+.wrapper,
+.top-title,
+.logo-placeholder {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================
+   LEFT SECTION
+   ========================= */
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.warning-title {
+  color: #ff5b5b;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.left p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #c8d9f0;
+  margin-bottom: 16px;
+}
+
+.quote {
+  margin-top: 28px;
+  padding-left: 16px;
+  border-left: 3px solid #28f7ff;
+  font-size: 15px;
+  color: #9deaff;
+}
+
+/* =========================
+   RIGHT SECTION
+   ========================= */
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* =========================
+   LOGIN CARD
+   ========================= */
+.login-card {
+  width: 520px;
+  padding: 44px;
+  border-radius: 18px;
+  background: linear-gradient(
+    180deg,
+    rgba(20,30,60,0.92),
+    rgba(8,12,26,0.92)
+  );
+  border: 1px solid rgba(0,255,255,0.25);
+  box-shadow:
+    0 0 40px rgba(0,255,255,0.15),
+    inset 0 0 18px rgba(255,255,255,0.04);
+}
+
+.login-card h2 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.login-card h2 span {
+  background: linear-gradient(90deg, #28f7ff, #b82cff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subtext {
+  text-align: center;
+  font-size: 13px;
+  color: #b9d6ff;
+  margin-bottom: 26px;
+}
+
+.subtext span {
+  color: #28f7ff;
+}
+
+/* =========================
+   FORM
+   ========================= */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-size: 12px;
+  color: #91b7d6;
+}
+
+input {
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(0,255,255,0.25);
+  color: #e6f2ff;
+}
+
+input:focus {
+  outline: none;
+  border-color: #28f7ff;
+  box-shadow: 0 0 10px rgba(40,247,255,0.4);
+}
+
+/* =========================
+   BUTTON
+   ========================= */
+button {
+  margin-top: 16px;
+  padding: 14px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #28f7ff, #d22cff);
+  color: #000;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.15);
+}
+
+/* =========================
+   FOOT WARNING
+   ========================= */
+.foot-warning {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 11px;
+  color: #ff6b6b;
+}
+
+/* =========================
+   TABLET
+   ========================= */
+@media (max-width: 1024px) {
+  .wrapper {
+    grid-template-columns: 1fr 1fr;
+    padding: 32px;
+  }
+
+  .login-card {
+    width: 100%;
+  }
+}
+
+/* =========================
+   MOBILE (FINAL & CORRECT)
+   ========================= */
+@media (max-width: 768px) {
+
+  .wrapper {
+    height: auto;          /* 🔑 CRITICAL */
+    min-height: unset;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    gap: 32px;
+  }
+ body {
+    overflow-y: auto;
+  }
+  .left {
+    order: 1;
+    justify-content: flex-start;
+  }
+
+  .right {
+    order: 2;
+    justify-content: center;
+  }
+
+  .login-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 32px;
+    margin: 0 auto;
+  }
+
+  .warning-title {
+    font-size: 20px;
+  }
+
+  .left p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .quote {
+    font-size: 13px;
+  }
+
+  .top-title {
+    grid-template-columns: auto 1fr;
+    padding: 0 14px;
+    height: auto;
+    min-height: 56px;
+  }
+
+  .header-center {
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+
+  .logo-placeholder {
+    top: 10px;
+    left: 10px;
+  }
+
+  .vcc-logo {
+    height: 32px;
+  }
+}
+/* =========================
+   ADMIN FOOTER (MINIMAL)
+   ========================= */
+.admin-footer {
+  height: 44px;
+  border-top: 1px solid rgba(0,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(2,4,10,0.9), rgba(6,11,24,0.9));
+  color: #9fb7d6;
+  font-size: 12px;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 2;
+}
+
+.admin-footer-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.admin-footer .divider {
+  color: #28f7ff;
+}
+@media (max-width: 768px) {
+  .admin-footer {
+    font-size: 11px;
+    height: auto;
+    padding: 8px 12px;
+  }
+
+  .admin-footer-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

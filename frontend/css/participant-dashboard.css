@@ -1,0 +1,524 @@
+/* =========================
+   FONT IMPORT
+   ========================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+/* =========================
+   RESET & BASE
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  letter-spacing: 0.2px;
+  background: radial-gradient(circle at top, #0c1222, #02040a);
+  color: #e6f2ff;
+  overflow: hidden;
+}
+
+/* =========================
+   BACKGROUND GRID
+   ========================= */
+.bg {
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(rgba(40,247,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(40,247,255,0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  animation: gridMove 30s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes gridMove {
+  to { background-position: 220px 220px; }
+}
+
+/* =========================
+   HEADER
+   ========================= */
+.dashboard-header {
+  height: 64px;
+  padding: 0 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(5,10,25,0.85);
+  border-bottom: 1px solid rgba(40,247,255,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-left .brand {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.cyan { color: #28f7ff; }
+.team { color: #b8ecff; }
+
+/* =========================
+   TIMER & END BUTTON
+   ========================= */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.timer {
+  font-family: "Space Grotesk", monospace;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(40,247,255,0.35);
+  color: #28f7ff;
+}
+
+.timer.session-ended {
+  color: #ff5b5b;
+  border-color: rgba(255,91,91,0.6);
+}
+
+.end-btn {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.8px;
+  padding: 7px 16px;
+  background: transparent;
+  border: 1px solid rgba(255,91,91,0.6);
+  border-radius: 6px;
+  color: #ff5b5b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.end-btn:hover {
+  background: rgba(255,91,91,0.15);
+}
+
+/* =========================
+   MAIN CONTAINER
+   ========================= */
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 32px;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+}
+
+/* =========================
+   TEAM INFO
+   ========================= */
+.team-info {
+  background: rgba(15,25,45,0.75);
+  border: 1px solid rgba(40,247,255,0.25);
+  border-radius: 14px;
+  padding: 26px;
+  margin-bottom: 32px;
+}
+
+.team-info h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+  margin-bottom: 18px;
+  color: #28f7ff;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 28px;
+}
+
+.info-grid div {
+  font-size: 14.5px;
+  color: #d6e2f3;
+}
+
+.info-grid strong {
+  color: #9deaff;
+  font-weight: 600;
+}
+
+.info-grid .full {
+  grid-column: span 2;
+}
+
+.desc {
+  margin-top: 6px;
+  line-height: 1.65;
+  color: #cbdaf0;
+}
+
+/* =========================
+   PROMPT SECTION
+   ========================= */
+.prompt-section {
+  background: rgba(10,20,40,0.8);
+  border: 1px solid rgba(40,247,255,0.25);
+  border-radius: 14px;
+  padding: 26px;
+}
+
+.prompt-section h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #28f7ff;
+}
+/* =========================
+   AI TOOL INPUT
+   ========================= */
+
+.field-label {
+  display: block;
+  margin-bottom: 6px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  color: #9deaff;
+}
+
+.ai-input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+
+  font-family: "Inter", sans-serif;
+  font-size: 14.5px;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+
+  background: rgba(0, 0, 0, 0.6);
+  color: #e6f2ff;
+
+  border: 1px solid rgba(40, 247, 255, 0.3);
+  border-radius: 8px;
+
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ai-input::placeholder {
+  color: #7fa6c9;
+}
+
+.ai-input:focus {
+  border-color: rgba(40, 247, 255, 0.7);
+  box-shadow: 0 0 0 2px rgba(40, 247, 255, 0.15);
+}
+
+/* TEXTAREA */
+textarea {
+  width: 100%;
+  height: 130px;
+  padding: 14px 16px;
+  font-family: "Inter", sans-serif;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #e6f2ff;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(40,247,255,0.3);
+  border-radius: 8px;
+  resize: none;
+}
+
+/* BUTTON */
+button {
+  margin: 16px 0 22px;
+  padding: 12px 26px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  background: linear-gradient(90deg, #28f7ff, #7cf7ff);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* =========================
+   TABLE
+   ========================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+  font-family: "Inter", sans-serif;
+}
+
+th, td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(40,247,255,0.15);
+}
+
+th {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #9deaff;
+}
+
+td {
+  font-size: 14px;
+  color: #d6e2f3;
+}
+
+/* =========================
+   WARNING TEXT
+   ========================= */
+.warning {
+  margin-top: 14px;
+  font-size: 13px;
+  color: #ff6b6b;
+}
+
+/* =========================
+   SESSION END MODAL
+   ========================= */
+.session-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(2,6,14,0.85);
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.session-modal.show {
+  display: flex;
+}
+
+.session-box {
+  width: 520px;
+  max-width: 90%;
+  padding: 36px;
+  border-radius: 16px;
+  background: linear-gradient(
+    180deg,
+    rgba(20,30,60,0.96),
+    rgba(8,12,26,0.96)
+  );
+  border: 1px solid rgba(40,247,255,0.35);
+  box-shadow: 0 0 40px rgba(40,247,255,0.25);
+  text-align: center;
+}
+
+.session-box h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 22px;
+  letter-spacing: 1.2px;
+  color: #ff5b5b;
+  margin-bottom: 18px;
+}
+
+.session-box p {
+  font-size: 14.5px;
+  color: #cbdaf0;
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+.session-box .important {
+  color: #28f7ff;
+  font-weight: 600;
+}
+
+.session-box .time {
+  color: #ffd36a;
+}
+
+/* MODAL BUTTON */
+.modal-btn {
+  margin-top: 18px;
+  padding: 10px 24px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  background: linear-gradient(90deg, #28f7ff, #7cf7ff);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#teamMembersList {
+  margin-top: 8px;
+  padding-left: 18px;
+}
+
+#teamMembersList li {
+  font-size: 14px;
+  color: #cdeaff;
+  margin-bottom: 4px;
+}
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.modal-btn.secondary {
+  background: transparent;
+  border: 1px solid rgba(40,247,255,0.4);
+  color: #9deaff;
+}
+
+.modal-btn.danger {
+  background: linear-gradient(90deg, #ff5b5b, #ff8a8a);
+  color: #fff;
+}
+/* =========================
+   TIME WARNING BANNER
+   ========================= */
+
+.time-warning {
+  position: fixed;
+  top: 72px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 14px 26px;
+  border-radius: 10px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  z-index: 1000;
+  display: none;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.time-warning.show {
+  display: block;
+}
+
+.time-warning.warn-30 {
+  background: linear-gradient(90deg, #facc15, #fde047);
+  color: #000;
+}
+
+.time-warning.warn-10 {
+  background: linear-gradient(90deg, #fb923c, #fdba74);
+  color: #000;
+}
+
+.time-warning.warn-5 {
+  background: linear-gradient(90deg, #ef4444, #ff7b7b);
+  color: #fff;
+}
+/* =========================
+   PROJECT SUBMISSION
+   ========================= */
+
+.submission-section {
+  margin-top: 40px;
+  background: rgba(10, 20, 40, 0.85);
+  border: 1px solid rgba(40, 247, 255, 0.25);
+  border-radius: 14px;
+  padding: 26px;
+}
+
+.submission-section h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #28f7ff;
+}
+
+/* Buttons inside submission */
+.submission-section button {
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+
+/* Disabled input & button */
+.submission-section input:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.submission-section button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =========================
+   SUBMISSION STATUS
+   ========================= */
+
+.submission-status {
+  margin-top: 10px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(40, 247, 255, 0.15);
+}
+
+.submission-status p {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.status {
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+.status.pending {
+  color: #ff6b6b;
+}
+
+.status.submitted {
+  color: #28f7ff;
+}
+/* =========================
+   INPUT ERROR MESSAGES
+   ========================= */
+
+.input-error {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: #ff6b6b;
+  display: none;
+}
+
+.input-error.show {
+  display: block;
+}
+.problem-download {
+  margin-bottom: 40px;
+  background: rgba(10, 20, 40, 0.85);
+  border: 1px solid rgba(40,247,255,0.25);
+  border-radius: 14px;
+  padding: 26px;
+}
+
+.problem-download h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+  color: #28f7ff;
+  margin-bottom: 8px;
+}
+
+.problem-download .note {
+  font-size: 13px;
+  color: #ffd36a;
+  margin-bottom: 14px;
+}

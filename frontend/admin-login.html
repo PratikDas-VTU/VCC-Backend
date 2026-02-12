@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Vibeathon | Admin Access</title>
+  <link rel="stylesheet" href="css/admin-auth.css" />
+</head>
+
+<body>
+  <!-- Background -->
+  <div class="bg"></div>
+
+  <!-- Header -->
+  <header class="top-title">
+    <div class="header-left">
+      <a href="https://vcc2026.vercel.app/" target="_blank" rel="noopener noreferrer">
+        <img src="https://res.cloudinary.com/dpvk1lduh/image/upload/v1770884855/VCC-logo_gvqdgd.png" alt="VCC Logo"
+          class="vcc-logo" />
+      </a>
+    </div>
+
+    <div class="header-center">
+      <span class="cyan">VIBEATHON</span>
+      <span class="divider">|</span>
+      <span class="pink">ADMIN ACCESS</span>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <div class="wrapper">
+
+    <!-- Left Panel -->
+    <section class="left">
+      <h2 class="warning-title">⚠ SYSTEM WARNING</h2>
+
+      <p>Unauthorized access to this system is strictly prohibited.</p>
+
+      <p>
+        All administrative actions are logged, timestamped, and continuously monitored.
+      </p>
+
+      <div class="quote">
+        “This panel is restricted to authorized Vibeathon coordinators and core team members only.
+        All actions performed here directly affect event operations.”
+      </div>
+    </section>
+
+    <!-- Right Panel -->
+    <section class="right">
+      <div class="login-card">
+        <h2>ADMIN <span>LOGIN</span></h2>
+
+        <p class="subtext">
+          Authorized access only<br />
+          <span>Vibeathon Coordinators & Core Team</span>
+        </p>
+
+        <!-- LOGIN FORM -->
+        <form id="adminForm" novalidate>
+          <label for="adminId">Admin ID</label>
+          <input type="text" id="adminId" name="adminId" required />
+
+          <label for="adminPassword">Password</label>
+          <input type="password" id="adminPassword" name="adminPassword" required />
+
+          <button type="submit">SECURE LOGIN</button>
+        </form>
+
+        <p class="foot-warning">
+          Unauthorized access attempts are logged & monitored.
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- JS -->
+  <script src="js/admin-auth.js"></script>
+
+  <!-- Footer -->
+  <footer class="admin-footer">
+    <div class="admin-footer-inner">
+      <span>VIBEATHON 2026 • ADMIN SYSTEM</span>
+      <span class="divider">|</span>
+      <span>VEL TECH CYBERCATALYST</span>
+      <span class="divider">|</span>
+      <span>Unauthorized access is prohibited</span>
+    </div>
+  </footer>
+
+</body>
+
+</html>

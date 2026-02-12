@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Vibeathon | Participant Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Orbitron:wght@500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/participant.css" />
+</head>
+
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg"></div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="top-title">
+    <div class="header-left">
+      <a href="https://vcc2026.vercel.app/" target="_blank" rel="noopener noreferrer">
+        <img src="https://res.cloudinary.com/dpvk1lduh/image/upload/v1770884855/VCC-logo_gvqdgd.png" alt="VCC Logo"
+          class="vcc-logo">
+      </a>
+    </div>
+
+    <div class="header-center">
+      <span class="cyan">VIBEATHON</span>
+      <span class="divider">|</span>
+      <span class="pink">PARTICIPANT LOGIN</span>
+    </div>
+  </header>
+
+  <!-- ================= MAIN ================= -->
+  <main class="wrapper">
+
+    <!-- LEFT PANEL -->
+    <section class="left">
+      <h2 class="info-title">👥 PARTICIPANT ACCESS</h2>
+
+      <p class="info-text">
+        This portal is strictly for <strong>registered Vibeathon participants</strong>.
+        Access is enabled only during the official hackathon window.
+      </p>
+
+      <button id="toggleRules" class="rules-btn">
+        📜 VIEW RULES & GUIDELINES
+      </button>
+
+      <div class="quote">
+        “This interface becomes active only during the scheduled hackathon window.”
+      </div>
+    </section>
+
+    <!-- RIGHT PANEL -->
+    <section class="right">
+      <div class="login-card">
+        <h2>PARTICIPANT <span>LOGIN</span></h2>
+        <p class="subtext">Registered teams only</p>
+
+        <form id="participantForm">
+          <label for="email">Registered Email</label>
+          <input id="email" type="email" placeholder="team042@vibeathon.in" required />
+
+          <label for="password">Login Password</label>
+          <input id="password" type="password" placeholder="••••••••" required />
+
+          <button type="submit" id="loginBtn">ENTER DASHBOARD</button>
+        </form>
+
+        <div id="loginMessage" class="login-message"></div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- ================= RULES SECTION ================= -->
+  <section id="rules" class="rules hidden">
+
+    <h2 class="rules-title">Rules & Guidelines</h2>
+    <p class="rules-subtitle">Please read carefully and follow all rules</p>
+
+    <div class="rules-container">
+
+      <!-- RULE 01 -->
+      <div class="rule-item">
+        <div class="rule-header">
+          <span class="rule-number">01</span>
+          <h3>GitHub Repository Policy</h3>
+          <button class="rule-toggle">+</button>
+        </div>
+        <div class="rule-content">
+          A new GitHub repository must be created only after entering the college campus.
+          All development work must be pushed strictly during the competition period.
+        </div>
+      </div>
+
+      <!-- RULE 02 -->
+      <div class="rule-item">
+        <div class="rule-header">
+          <span class="rule-number">02</span>
+          <h3>Pre-written Code Prohibition</h3>
+          <button class="rule-toggle">+</button>
+        </div>
+        <div class="rule-content">
+          Pre-written or previously developed projects are strictly prohibited.
+          Only code written during the event will be considered for evaluation.
+        </div>
+      </div>
+
+      <!-- RULE 03 -->
+      <div class="rule-item">
+        <div class="rule-header">
+          <span class="rule-number">03</span>
+          <h3>Competition Time Window</h3>
+          <button class="rule-toggle">+</button>
+        </div>
+        <div class="rule-content">
+          The competition will run for a fixed development duration.
+          Coding must begin only after the official start announcement.
+        </div>
+      </div>
+
+      <!-- RULE 04 -->
+      <div class="rule-item">
+        <div class="rule-header">
+          <span class="rule-number">04</span>
+          <h3>Final Submission Requirements</h3>
+          <button class="rule-toggle">+</button>
+        </div>
+        <div class="rule-content">
+          The final submission must be a working AI-based web application or web dashboard
+          that runs locally or directly in a browser.
+        </div>
+      </div>
+
+      <!-- RULE 05 -->
+      <div class="rule-item">
+        <div class="rule-header">
+          <span class="rule-number">05</span>
+          <h3>Technology Stack Freedom</h3>
+          <button class="rule-toggle">+</button>
+        </div>
+        <div class="rule-content">
+          Teams are free to use any web technology stack such as HTML, CSS, JavaScript,
+          React, Flask, Node.js, or similar frameworks to implement their solution.
+        </div>
+      </div>
+
+      <!-- RULE 06 -->
+      <div class="rule-item">
+        <div class="rule-header">
+          <span class="rule-number">06</span>
+          <h3>Fair Play & Collaboration</h3>
+          <button class="rule-toggle">+</button>
+        </div>
+        <div class="rule-content">
+          Cross-team collaboration, code sharing, or idea exchange between teams
+          is strictly prohibited and will result in disqualification.
+        </div>
+      </div>
+
+      <!-- RULE 07 -->
+      <div class="rule-item">
+        <div class="rule-header">
+          <span class="rule-number">07</span>
+          <h3>Innovation & Creativity</h3>
+          <button class="rule-toggle">+</button>
+        </div>
+        <div class="rule-content">
+          Teams are encouraged to demonstrate innovation, creativity, and practical
+          problem-solving rather than focusing only on theoretical concepts.
+        </div>
+      </div>
+
+      <!-- RULE 08 -->
+      <div class="rule-item">
+        <div class="rule-header">
+          <span class="rule-number">08</span>
+          <h3>Malpractice & Disqualification</h3>
+          <button class="rule-toggle">+</button>
+        </div>
+        <div class="rule-content">
+          Any form of malpractice or violation of rules will lead to immediate disqualification.
+          The judges’ decision will be final and binding.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="participant-footer">
+    VIBEATHON 2026 • PARTICIPANT SYSTEM • VEL TECH CYBERCATALYST
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/participants.js"></script>
+</body>
+
+</html>
