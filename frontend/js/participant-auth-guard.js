@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     // 🔐 Validate token by hitting a protected endpoint
     const res = await authFetch(
-      "https://2496-2405-201-e07a-d82a-2d08-ed78-a067-1cf6.ngrok-free.app/api/team/me"
+      "https://vcc-backend-myyu.onrender.com/api/team/me"
     );
 
     if (!res || !res.ok) {

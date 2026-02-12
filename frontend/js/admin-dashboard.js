@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function fetchTeams() {
     try {
       const res = await adminFetch(
-        "https://2496-2405-201-e07a-d82a-2d08-ed78-a067-1cf6.ngrok-free.app/api/admin/teams"
+        "https://vcc-backend-myyu.onrender.com/api/admin/teams"
       );
 
       if (!res.ok) throw new Error("Unauthorized");
@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
     autoRefreshInterval = setInterval(async () => {
       try {
         const res = await adminFetch(
-          "https://2496-2405-201-e07a-d82a-2d08-ed78-a067-1cf6.ngrok-free.app/api/admin/teams"
+          "https://vcc-backend-myyu.onrender.com/api/admin/teams"
         );
 
         if (res.ok) {
@@ -530,7 +530,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       // Fetch from Firebase Realtime Database via backend
       const res = await adminFetch(
-        "https://2496-2405-201-e07a-d82a-2d08-ed78-a067-1cf6.ngrok-free.app/api/admin/prompt-evaluations"
+        "https://vcc-backend-myyu.onrender.com/api/admin/prompt-evaluations"
       );
 
       if (!res.ok) {
@@ -560,7 +560,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function fetchPrompts() {
     try {
       const res = await adminFetch(
-        "https://2496-2405-201-e07a-d82a-2d08-ed78-a067-1cf6.ngrok-free.app/api/admin/prompts"
+        "https://vcc-backend-myyu.onrender.com/api/admin/prompts"
       );
 
       if (!res.ok) {
@@ -683,7 +683,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try {
         const res = await adminFetch(
-          "https://2496-2405-201-e07a-d82a-2d08-ed78-a067-1cf6.ngrok-free.app/api/admin/evaluate-prompts",
+          "https://vcc-backend-myyu.onrender.com/api/admin/evaluate-prompts",
           {
             method: "POST"
           }

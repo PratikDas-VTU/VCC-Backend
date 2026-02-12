@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const res = await fetch(
-        "https://2496-2405-201-e07a-d82a-2d08-ed78-a067-1cf6.ngrok-free.app/api/admin/login",
+        "https://vcc-backend-myyu.onrender.com/api/admin/login",
         {
           method: "POST",
           headers: {

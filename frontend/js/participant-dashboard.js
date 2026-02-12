@@ -67,12 +67,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   /* ===================== LOAD TEAM ===================== */
   console.log("🔍 Starting team load process...");
-  console.log("📍 API URL:", "https://2496-2405-201-e07a-d82a-2d08-ed78-a067-1cf6.ngrok-free.app/api/team/me");
+  console.log("📍 API URL:", "https://vcc-backend-myyu.onrender.com/api/team/me");
 
   try {
     console.log("📡 Making authFetch request...");
     const res = await authFetch(
-      "https://2496-2405-201-e07a-d82a-2d08-ed78-a067-1cf6.ngrok-free.app/api/team/me"
+      "https://vcc-backend-myyu.onrender.com/api/team/me"
     );
 
     console.log("✅ Response received:", res);
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const TOTAL_TIME = 2 * 60 * 60;
 
   const startRes = await authFetch(
-    "https://2496-2405-201-e07a-d82a-2d08-ed78-a067-1cf6.ngrok-free.app/api/submission/start",
+    "https://vcc-backend-myyu.onrender.com/api/submission/start",
     { method: "POST" }
   );
   const startData = await startRes.json();
@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (downloadBtn) {
     downloadBtn.onclick = async () => {
       const res = await authFetch(
-        "https://2496-2405-201-e07a-d82a-2d08-ed78-a067-1cf6.ngrok-free.app/api/submission/problem-statement"
+        "https://vcc-backend-myyu.onrender.com/api/submission/problem-statement"
       );
 
       if (!res.ok) {
@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   async function autoEndSession() {
     if (sessionEnded) return;
     await authFetch(
-      "https://2496-2405-201-e07a-d82a-2d08-ed78-a067-1cf6.ngrok-free.app/api/submission/end",
+      "https://vcc-backend-myyu.onrender.com/api/submission/end",
       { method: "POST" }
     );
     showSessionEndedUI();
@@ -243,7 +243,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
     await authFetch(
-      "https://2496-2405-201-e07a-d82a-2d08-ed78-a067-1cf6.ngrok-free.app/api/submission/github",
+      "https://vcc-backend-myyu.onrender.com/api/submission/github",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
     await authFetch(
-      "https://2496-2405-201-e07a-d82a-2d08-ed78-a067-1cf6.ngrok-free.app/api/submission/deployment",
+      "https://vcc-backend-myyu.onrender.com/api/submission/deployment",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   submitPromptBtn.onclick = async () => {
     if (!aiInput.value || !promptInput.value) return;
     await authFetch(
-      "https://2496-2405-201-e07a-d82a-2d08-ed78-a067-1cf6.ngrok-free.app/api/submission/prompt",
+      "https://vcc-backend-myyu.onrender.com/api/submission/prompt",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -286,7 +286,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   async function loadPrompts() {
     const res = await authFetch(
-      "https://2496-2405-201-e07a-d82a-2d08-ed78-a067-1cf6.ngrok-free.app/api/submission/prompts"
+      "https://vcc-backend-myyu.onrender.com/api/submission/prompts"
     );
 
     const prompts = await res.json();
@@ -339,7 +339,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   confirmEndBtn.onclick = async () => {
     await authFetch(
-      "https://2496-2405-201-e07a-d82a-2d08-ed78-a067-1cf6.ngrok-free.app/api/submission/end",
+      "https://vcc-backend-myyu.onrender.com/api/submission/end",
       { method: "POST" }
     );
     showSessionEndedUI();
