@@ -41,53 +41,55 @@ router.post("/login", async (req, res) => {
     /**
      * DEMO ADMIN FALLBACK
      */
-    if (!admin) {
-      const DEMO_ADMIN = {
-        username: "admin",
-        password: "admin123"
-      };
+    if (!admin && username === "admin" && password === "admin123") {
+      // Create Firebase user for demo admin
+      const adminEmail = "admin@vibeathon.internal";
 
-      if (
-        username === DEMO_ADMIN.username &&
-        password === DEMO_ADMIN.password
-      ) {
-        // Create Firebase user for demo admin
-        const adminEmail = `${DEMO_ADMIN.username}@vibeathon.internal`;
-
+      try {
+        // Try to get existing user or create new one
+        let userRecord;
         try {
-          // Try to get existing user or create new one
-          let userRecord;
-          try {
-            userRecord = await auth.getUserByEmail(adminEmail);
-          } catch (error) {
-            // User doesn't exist, create it
-            userRecord = await createAdminUser(adminEmail, DEMO_ADMIN.password);
-          }
+          userRecord = await auth.getUserByEmail(adminEmail);
+          console.log("✅ Demo admin user already exists in Firebase Auth");
+        } catch (error) {
+          // User doesn't exist, create it
+          console.log("🔧 Creating demo admin user in Firebase Auth...");
+          userRecord = await createAdminUser(adminEmail, password);
+          console.log("✅ Demo admin user created successfully");
+        }
 
-          // Create admin in database
+        // Create admin in database if doesn't exist
+        try {
           admin = await createAdmin({
-            username: DEMO_ADMIN.username,
+            username: "admin",
             email: adminEmail,
             role: "admin"
           });
-
-          // Set custom claims for role-based access
-          await auth.setCustomUserClaims(userRecord.uid, {
-            id: admin.id,
-            role: "admin",
-            username: admin.username
-          });
-        } catch (error) {
-          console.error("Error creating demo admin:", error);
-          return res.status(500).json({
-            message: "Failed to create demo admin"
-          });
+          console.log("✅ Demo admin created in database");
+        } catch (dbError) {
+          // Admin might already exist in database, fetch it
+          admin = await getAdminByUsername("admin");
+          console.log("✅ Demo admin already exists in database");
         }
-      } else {
-        return res.status(401).json({
-          message: "Invalid credentials"
+
+        // Set custom claims for role-based access
+        await auth.setCustomUserClaims(userRecord.uid, {
+          id: admin.id,
+          role: "admin",
+          username: admin.username
+        });
+        console.log("✅ Custom claims set for demo admin");
+      } catch (error) {
+        console.error("❌ Error creating demo admin:", error);
+        return res.status(500).json({
+          message: "Failed to create demo admin"
         });
       }
+    } else if (!admin) {
+      // Neither demo admin nor real admin found
+      return res.status(401).json({
+        message: "Invalid credentials"
+      });
     }
 
     // 🔐 Sign in with Firebase Authentication
