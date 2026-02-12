@@ -1,8 +1,17 @@
 const admin = require("firebase-admin");
 
-// Load service account from environment or file
-const serviceAccount = require("./firebase-service-account.json");
+// Use environment variable in production, fallback to local file in development
+let serviceAccount;
 
+if (process.env.FIREBASE_SERVICE_ACCOUNT) {
+    // Parse the JSON string from environment variable
+    serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+    console.log("✅ Using Firebase credentials from environment variable");
+} else {
+    // Fallback to local file for development
+    serviceAccount = require("./firebase-service-account.json");
+    console.log("✅ Using Firebase credentials from local file");
+}
 
 // Initialize Firebase Admin SDK
 admin.initializeApp({
