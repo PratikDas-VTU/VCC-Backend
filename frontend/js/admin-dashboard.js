@@ -92,24 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // { TEAM_ID: { promptCount, uniqueAITools } }
   let promptEvaluations = {};
-  // { promptId: { aiScore, aiFeedback } }
-  function computeTeamAIScore(vccId, prompts, promptEvaluations) {
-    let total = 0;
-    let count = 0;
 
-    prompts.forEach(p => {
-      if (p.vccId !== vccId) return;
-
-      const evalData = promptEvaluations[String(p._id)];
-      if (evalData && typeof evalData.aiScore === "number") {
-        total += evalData.aiScore;
-        count++;
-      }
-    });
-
-    if (count === 0) return null; // not evaluated yet
-    return Number((total / count).toFixed(2));
-  }
 
 
   /* ==========================
