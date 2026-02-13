@@ -61,7 +61,13 @@ Evaluation Criteria with score rules (apply all):
   - AI used for logic+structure (good: 5)
   - AI used strategically for modeling and validation (very good: 10)
 
-Total max points = 40
+5. Prompt Quality Based on Problem Statement
+- Do the prompts demonstrate alignment with the specific problem statement requirements?
+  - prompts generic, no reference to event management system (poor: 0)
+  - prompts mention some aspects like roles or approvals (good: 5)
+  - prompts explicitly address multi-level workflows, venue management, dynamic requests, and constraint handling (very good: 10)
+
+Total max points = 50
 
 ---
 
@@ -70,7 +76,7 @@ Output Format (STRICT):
 Return ONLY a valid JSON object with the following fields:
 
 {
-  "score": <integer between 0 and 40>,
+  "score": <integer between 0 and 50>,
   "level": "<Very Poor | Basic | Good | Excellent>",
   "reasoning": "<2–4 concise sentences explaining the score>",
   "strengths": ["point1", "point2"],
@@ -197,7 +203,7 @@ router.post("/evaluate-prompts", verifyAdmin, async (req, res) => {
                 }
 
                 // Ensure score is within bounds
-                evaluation.score = Math.max(0, Math.min(40, evaluation.score));
+                evaluation.score = Math.max(0, Math.min(50, evaluation.score));
 
                 // Store evaluation in Firebase
                 await db.ref(`promptEvaluations/${vccId}`).set({
@@ -206,7 +212,7 @@ router.post("/evaluate-prompts", verifyAdmin, async (req, res) => {
                     promptCount: teamPrompts.length
                 });
 
-                console.log(`✅ ${vccId}: Score ${evaluation.score}/40 (${evaluation.level})`);
+                console.log(`✅ ${vccId}: Score ${evaluation.score}/50 (${evaluation.level})`);
 
                 results.evaluated++;
                 results.details.push({
