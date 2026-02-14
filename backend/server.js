@@ -29,7 +29,8 @@ app.use(
       "http://127.0.0.1:5500",
       "http://localhost:5500",
       "https://2496-2405-201-e07a-d82a-2d08-ed78-a067-1cf6.ngrok-free.app", // Old ngrok URL
-      "https://vcc-backend-myyu.onrender.com" // Render backend URL
+      "https://vcc-backend-myyu.onrender.com", // Render backend URL
+      "https://vcc-vibeathon2026.vercel.app" // New Vercel Deployment
     ]
     ,
     methods: ["GET", "POST", "PUT", "DELETE"],
